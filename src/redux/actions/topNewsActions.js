@@ -16,11 +16,11 @@ const getPosts = () => async (dispatch) => {
 
   try {
     await runTimeout();
-    const posts = await newsService.fetchTopNews();
+    const { data } = await newsService.fetchTopNews();
     dispatch({
       type: NEWS_GET_TOP_POSTS_SUCCESS,
       payload: {
-        posts,
+        posts: data,
       },
     });
   } catch (error) {
