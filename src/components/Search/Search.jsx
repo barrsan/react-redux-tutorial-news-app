@@ -1,13 +1,31 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
+import { useDispatch } from 'react-redux';
+import { debounce } from 'throttle-debounce';
+import { searchNewsActions } from '@redux/actions';
 
 const Search = () => {
   const [inputValue, setInputValue] = useState('');
 
+  const dispatch = useDispatch();
+
+  const debounceHandleInputChange = useRef(
+    debounce(1000, false, (value) => {
+      dispatch(searchNewsActions.clearPosts());
+      dispatch(searchNewsActions.setCurrentPage(0));
+      dispatch(searchNewsActions.setSearchString(value));
+      dispatch(searchNewsActions.getPosts());
+    }),
+  );
+
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
+    debounceHandleInputChange.current(e.target.value);
   };
 
   const handleClearClick = () => {
+    dispatch(searchNewsActions.clearPosts());
+    dispatch(searchNewsActions.setCurrentPage(0));
+    dispatch(searchNewsActions.setSearchString(''));
     setInputValue('');
   };
 

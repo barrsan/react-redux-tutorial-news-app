@@ -45,10 +45,12 @@ export default {
         params,
       });
 
-      const { data } = response;
+      const {
+        data: { articles },
+      } = response;
 
       return {
-        data,
+        data: articles,
       };
     } catch (error) {
       throw error;

@@ -6,7 +6,7 @@ const NewsFeed = ({ items = [], isLoading = false }) => {
     return <div className="py-3">Posts not found</div>;
   }
 
-  if (isLoading) {
+  if (!items.length && isLoading) {
     return (
       <div className="py-3 flex flex-col items-center">
         <Loader isDark width={10} />

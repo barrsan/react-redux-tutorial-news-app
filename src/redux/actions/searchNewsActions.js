@@ -30,25 +30,25 @@ const clearPosts = () => ({
 });
 
 const getPosts = () => async (dispatch, getState) => {
-  const { newsFeed } = getState();
+  const { searchNews } = getState();
 
   dispatch({
     type: NEWS_GET_POSTS_TRIGGER,
   });
 
   try {
-    const posts = await newsService.fetchSearchNewsResult({
-      searchString: newsFeed.searchString,
-      page: newsFeed.currentPage + 1,
+    const { data } = await newsService.fetchSearchNewsResult({
+      searchString: searchNews.searchString,
+      page: searchNews.currentPage + 1,
     });
 
     dispatch({
       type: NEWS_GET_POSTS_SUCCESS,
       payload: {
-        posts,
+        posts: data,
       },
     });
-    dispatch(setCurrentPage(newsFeed.currentPage + 1));
+    dispatch(setCurrentPage(searchNews.currentPage + 1));
   } catch (error) {
     dispatch({
       type: NEWS_GET_POSTS_ERROR,
