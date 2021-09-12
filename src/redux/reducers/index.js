@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import testR from './testr';
+import searchNews from './searchNews';
+import topNews from './topNews';
 
 export default combineReducers({
-  testR,
+  topNews,
+  searchNews,
 });

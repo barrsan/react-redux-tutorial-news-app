@@ -5,7 +5,9 @@
     "paths": {
       "@components/*": ["components/*"],
       "@constants": ["constants"],
-      "@redux/*": ["redux/*"]
+      "@services": ["services"],
+      "@redux/*": ["redux/*"],
+      "@helpers/*": ["helpers/*"]
     }
   },
   "exclude": ["node_modules", "**/node_modules/*"]

@@ -1,3 +1,4 @@
+import config from './config';
 import actionNames from './actionNames';
 
-export { actionNames };
+export { config, actionNames };
