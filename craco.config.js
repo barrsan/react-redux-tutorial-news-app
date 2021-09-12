@@ -5,6 +5,7 @@ module.exports = {
     alias: {
       '@components': path.resolve(__dirname, 'src/components/'),
       '@constants': path.resolve(__dirname, 'src/constants/'),
+      '@redux': path.resolve(__dirname, 'src/redux/'),
     },
   },
   style: {

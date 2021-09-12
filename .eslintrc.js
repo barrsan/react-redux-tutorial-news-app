@@ -10,6 +10,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'import/prefer-default-export': 0,
     'import/no-unresolved': 0,
+    'import/no-anonymous-default-export': 0,
     'object-curly-spacing': 1,
     'prettier/prettier': 1,
     'react/prop-types': 0,
